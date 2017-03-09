@@ -1,0 +1,498 @@
+<html>
+<head>
+	<title> Start Page </title>
+	<script src="https://web.stanford.edu/~ycleong/common/jquery-1.11.1.min.js"></script>
+	<script src="helper_scripts/mmturkey_new.js"></script>
+	<script src="helper_scripts/jstat.min.js"></script>
+	<script src="underscore-min.js"></script>
+	<link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+
+<!--- Instructions Page -->
+<div class="slide" id="load_image">
+<p id='logo-text'>Loading images... Please wait.</p>
+</div>
+
+
+<!--- Instructions Page -->
+<div class="slide" id="instructions">
+	<img src= "https://web.stanford.edu/~ycleong/common/stanford.png" alt="Stanford University">
+	<br><br>
+	<div id="elig">
+		<p>You will not be able to start this HIT if you have completed a similar HIT recently. If you would like to check your eligibility before accepting this HIT, you can enter your Worker ID below. (You have to enable popups to see the message).</p>
+
+		<center><input type="text" name="code"><br>
+
+		<button type="button" class = "elig" onclick="this.blur(); experiment.check()">Check Eligibility</button></center>
+	</div>
+	<br>
+
+	<p class="block-text">
+		<span id="test"> </span>
+		In this experiment, we are interested in the visual classification of images. You will see composite images of faces and scenes. You will be asked to determine whether there is more "face" or more "scene" in the image. The experiment will take you less than 30 minutes. We ask that you complete the experiment in one sitting. You will be paid $1.00 for your time, and a bonus of up to $3.00 based on your performance on the task. </p>
+
+		<p><strong>Please DO NOT complete this HIT using a mobile device.</strong></p>
+
+
+		<button type="button" onclick="this.blur(); experiment.description()">Start</button>
+
+		<p class="block-text" id="legal">Legal information: By answering the
+			following questions, you are participating in a study being performed by
+		clinical psychologists in the Stanford Department of Psychology. If you have
+		questions about this research, please contact <b>Dr. Ian Gotlib</b> at <b>(650) 725-9216</b>. You must be at 
+		least 18 years old to participate. Your participation in this research is voluntary. 
+		You may decline to answer any or all of the following questions. You may decline
+		further participation, at any time, without adverse consequences. Your
+		anonymity is assured; the researchers who have requested your participation will 
+		not receive any personal information about you.</p>
+	</div>
+
+	<div class="slide" id="description">
+		<p id='logo-text'>Instructions</p>
+		<p class="block-text"> Thank you for accepting this HIT. In this experiment, you will see composite images of faces and scenes. These images are created by mixing images of faces and scenes in different proportions. Some images will have more "<span class = "left_word">{{}}</span>" while other images will have more "<span class = "right_word">{{}}</span>". <br><br>For example, the left image has more "<span class = "left_word">{{}}</span>", and the right image has more "<span class = "right_word">{{}}</span>". 
+
+			<div class = "choice_pos">
+
+			<div class = "left"><p class = "logo"><img class = "left_image" height = "225"></img></p></div>
+			<div class = "right"><p class = "logo"><img class = "right_image" height = "225"></img></p></div>
+		</div>
+
+
+
+	     <button type="button" onclick="this.blur(); experiment.description1()">Continue</button>
+	     <!--<button type="button" onclick="this.blur(); experiment.part2_page1()">Continue</button>-->
+	 </div>
+
+	<div class="slide" id="description1">
+		<p id='logo-text'>Instructions</p>
+		<p class="block-text">
+			Your task is to decide whether there is more "<span class = "left_word">{{}}</span>" or more "<span class = "right_word">{{}}</span>" in each image.<br>You will receive a <strong> bonus of 3 cents </strong> for each correct classification.<br>Try to be as accurate as possible to earn the maximum amount of money. </p>
+
+		<p class = "logo"><img class = "img_prac" height = "225"></img></p>
+
+		<div class = "choice_pos">
+			<div class = "left">
+				<span class = "left_word">{{}}</span><br><br> &nbsp&nbsp Z
+			</div>
+			<div class = "right">
+				<span class = "right_word">{{}}</span><br><br>M &nbsp&nbsp
+			</div>
+		</div>
+
+		<p class="block-text"><center>If you think there is more "<span class = "left_word"></span>" in this image, press "Z" on your keyboard.<br>If you think there is more "<span class = "right_word"></span>" in this image, press "M" on your keyboard.  </p> 
+		<p id='logo-text'>(Try it! Press Z or M to advance to the next page)</center></p>
+	</div>
+
+	<!-- Page 2 -->
+	<div class="slide" id="description2">
+		<p id='logo-text'>Instructions</p>
+		<p class='block-text'>Following which, you will have to indicate how confident you were in the classification:</p>
+		<br>
+
+		<p id='logo-text'>How confident were you?</p>
+		<center>
+			<div class="wrap">
+			<form action="">
+				<ul class='likert'>
+					<li>
+						<input type="radio" name="likert" value="1">
+						<label>1<br/>Not Confident</label>
+					</li>
+					<li>
+						<input type="radio" name="likert" value="2">
+						<label>2</label>
+					</li>
+					<li>
+						<input type="radio" name="likert" value="3">
+						<label>3</label>
+					</li>
+
+					<li>
+						<input type="radio" name="likert" value="4">
+						<label>4</label>
+					</li>
+
+					<li>
+						<input type="radio" name="likert" value="5">
+						<label>5</label>
+					</li>
+
+					<li>
+						<input type="radio" name="likert" value="6">
+						<label>6</label>
+					</li>
+
+					<li>
+						<input type="radio" name="likert" value="7">
+						<label>7<br />Very Confident</label>
+					</li>
+				</ul>
+			</form>
+				<button type="button" onclick="this.blur(); experiment.conf_q1()">Continue</button>
+				<div class = "warning1"> <p><h3 style = "color: #6f6d6d;">Please answer this question.</h3></p></div>
+
+		</div>
+	</center>
+	</div>
+	<!-- Page 3 -->
+	<div class="slide" id="attchk1">
+
+		<p id='logo-text'>Attention Check</p>
+
+		<form name="AC1">
+			<span>How much money will you earn for each correct classification?<br><br></span>
+			<input type="radio" name="AC1" value="1" /><span id="opt">1 cents</span><br>
+			<input type="radio" name="AC1" value="3" /><span id="opt">3 cents</span><br>
+			<input type="radio" name="AC1" value="5" /><span id="opt">5 cents</span><br>
+			<input type="radio" name="AC1" value="7" /><span id="opt">7 cents</span><br>
+		</form>
+
+		<button type="button" onclick="this.blur(); experiment.attnchk_resp1()">Continue</button>
+	    <div class = "warning1"> <p><h3 style = "color: #6f6d6d;">Please answer this question.</h3></p></div>
+	    <div class = "wrongans"> <p><h3 style = "color: #6f6d6d;">Wrong answer, please try again!</h3></p></div>
+
+	</div>
+
+    <!-- Page 4-->
+	<div class="slide" id="description3">
+		<p id='logo-text'>Instructions</p>
+		<p class="block-text">
+		<center>	You are ready to start! <br><br> There are a total of 160 images, and there will be a break with additional instructions after 80 images. <br><br> Press G and we will begin. Good luck!</center></p>
+		</div>
+
+		<!-- Phase 2 Start Page -->
+		<div class="slide" id="description4">
+			<p id='logo-text'>Instructions Part 2</p>
+			<p class="block-text">
+				<center> Waiting for your partner. Game starting in: <br><br>
+				<span id = "countdown">{}</span>
+				</center></p>
+			</div>
+
+	<!--Choice Screen --> 
+	<div class="slide" id="choice_screen">
+	<p class = "logo"><br><img class="StimElement" height = "225"></img></p>
+		<div class = "choice_pos">
+			<div class = "left">
+				<span class = "left_word">{{}}</span><br><br> &nbsp&nbsp Z
+			</div>
+			<div class = "right">
+				<span class = "right_word">{{}}</span><br><br>M &nbsp&nbsp
+			</div>
+
+		</div>
+
+	</div>
+
+	<!--Confidence Screen --> 
+	<div class="slide" id="confidence_screen">
+		<p id= "progress-bar" style="font-size:14pt">Image <span class = "trial_no">{}</span> of 160</p>
+		<p id='logo-text'>How confident were you?</p>
+		<center>
+			<div class="wrap">
+				<form action="">
+					<ul class='likert'>
+						<li>
+							<input type="radio" name="likert" value="1">
+							<label>1<br/>Not Confident</label>
+						</li>
+						<li>
+							<input type="radio" name="likert" value="2">
+							<label>2</label>
+						</li>
+						<li>
+							<input type="radio" name="likert" value="3">
+							<label>3</label>
+						</li>
+						<li>
+							<input type="radio" name="likert" value="4">
+							<label>4</label>
+						</li>
+
+						<li>
+							<input type="radio" name="likert" value="5">
+							<label>5</label>
+						</li>
+
+						<li>
+							<input type="radio" name="likert" value="6">
+							<label>6</label>
+						</li>
+
+						<li>
+							<input type="radio" name="likert" value="7">
+							<label>7<br />Very Confident</label>
+						</li>
+					</ul>
+				</form>
+				<button type="button" onclick="this.blur(); experiment.confidence_response()">Next Image</button>
+				<div class = "warning1"> <p><h3 style = "color: #6f6d6d;">Please answer this question.</h3></p></div>
+			</div>
+		</div>
+
+	
+
+	<!-- Part 2 -->
+	<div class ="slide" id="part2_page1">
+		<p id='logo-text'>Instructions Part 2</p>
+		<p class = 'block-text'>You are done with the first half of the HIT!</p>
+		<p class = 'block-text'>
+			In the second half, you will be performing the same classification task. However, you will also be <strong> working together </strong> with another Turker to earn money. 
+			<br>
+			<br>
+			Before you see each image, your partner makes a bet on what type of image you will see (more "Face" or more "Scene"). Each time, your partner makes a bet of 7 cents. 
+			<br>
+			<br>
+			If your partner's bet is correct, both of you <strong> win 7 cents </strong>. 
+			<br>
+			<br>
+			If your partner's bet is wrong, both of you <strong>lose 7 cents</strong>. 
+			<br>
+			<br>
+			After he places his bet, the image will be shown and you will make your classification. As before, you will receive a bonus of <strong> 3 cents </strong> for each correct classification. 
+			<br>
+			<br>
+			In other words, if your partner makes a correct bet and you make a correct classification, you will earn 7 + 3 = <strong> 10 cents </strong> for that image.
+			<br>
+			<br>
+
+			Please see below for a schematic illustration of the task:</p>
+
+		<img class="phase2_gif" width = "700"><img>
+
+		<p class='block-text'><center> Press "G" to go to the next page.</center></p> 
+
+	</div> 
+
+
+	<!-- Attention Check 2-->
+	<div class="slide" id="attchk2">
+
+		<p id='logo-text'>Attention Check</p>
+
+		<form name="AC2a">
+			<span>How much money will you <strong>win</strong> if your partner makes a correct bet?</span><br><br>
+			<input type="radio" name="AC2a" value="1" /><span id="opt">1 cents</span><br>
+			<input type="radio" name="AC2a" value="3" /><span id="opt">3 cents</span><br>
+			<input type="radio" name="AC2a" value="5" /><span id="opt">5 cents</span><br>
+			<input type="radio" name="AC2a" value="7" /><span id="opt">7 cents</span><br>
+		</form>
+		<br>
+		<br>
+		<form name="AC2b">
+			<span>How much money will you <strong>lose</strong> if your partner makes a wrong bet?</span><br><br>
+			<input type="radio" name="AC2b" value="1" /><span id="opt">1 cents</span><br>
+			<input type="radio" name="AC2b" value="3" /><span id="opt">3 cents</span><br>
+			<input type="radio" name="AC2b" value="5" /><span id="opt">5 cents</span><br>
+			<input type="radio" name="AC2b" value="7" /><span id="opt">7 cents</span><br>
+		</form>
+		<br>
+		<br>
+
+		<form name="AC2c">
+			<span>How much money will you <strong>win</strong> if you classify correctly <em>and</em> your partner makes a correct bet?</span><br><br>
+			<input type="radio" name="AC2c" value="2" /><span id="opt">2 cents</span><br>
+			<input type="radio" name="AC2c" value="4" /><span id="opt">4 cents</span><br>
+			<input type="radio" name="AC2c" value="8" /><span id="opt">8 cents</span><br>
+			<input type="radio" name="AC2c" value="10" /><span id="opt">10 cents</span><br>
+		</form>
+
+		<button type="button" onclick="this.blur(); experiment.attnchk_resp2()">Continue</button>
+		<div class = "warning1"> <p><h3 style = "color: #6f6d6d;">Please answer all questions.</h3></p></div>
+		<div class = "wrongans"> <p><h3 style = "color: #6f6d6d;">At least one of your answers is wrong, please try again!</h3></p></div>
+	</div>
+
+	<!-- Attention Check 3-->
+	<div class="slide" id="attchk3">
+
+		<p id='logo-text'>Attention Check</p>
+
+		<form name="AC3a">
+			<span>How much money will you <strong>win</strong> if your partner makes a correct bet?</span><br>
+			<input type="radio" name="AC3a" value="1" /><span id="opt">1 cents</span><br>
+			<input type="radio" name="AC3a" value="3" /><span id="opt">3 cents</span><br>
+			<input type="radio" name="AC3a" value="5" /><span id="opt">5 cents</span><br>
+			<input type="radio" name="AC3a" value="7" /><span id="opt">7 cents</span><br>
+		</form>
+		<br>
+		<br>
+		<form name="AC3b">
+			<span>How much money will you <strong>lose</strong> if your partner makes a wrong bet?</span><br><br>
+			<input type="radio" name="AC3b" value="1" /><span id="opt">1 cents</span><br>
+			<input type="radio" name="AC3b" value="3" /><span id="opt">3 cents</span><br>
+			<input type="radio" name="AC3b" value="5" /><span id="opt">5 cents</span><br>
+			<input type="radio" name="AC3b" value="7" /><span id="opt">7 cents</span><br>
+		</form>
+		<br>
+		<br>
+
+		<form name="AC3c">
+			<span>How much money will you <strong>win</strong> if you classify correctly <em>and</em> your partner makes a correct bet?</span><br><br>
+			<input type="radio" name="AC3c" value="2" /><span id="opt">2 cents</span><br>
+			<input type="radio" name="AC3c" value="4" /><span id="opt">4 cents</span><br>
+			<input type="radio" name="AC3c" value="8" /><span id="opt">8 cents</span><br>
+			<input type="radio" name="AC3c" value="10" /><span id="opt">10 cents</span><br>
+		</form>
+
+		<button type="button" onclick="this.blur(); experiment.attnchk_resp3()">Continue</button>
+		<div class = "warning1"> <p><h3 style = "color: #6f6d6d;">Please answer all questions.</h3></p></div>
+		<div class = "wrongans"> <p><h3 style = "color: #6f6d6d;">At least one of your answers is wrong, please try again!</h3></p></div>
+	</div>
+
+	<div class="slide" id="predict_screen">
+	<p class = "logo">
+		<div style="height:245px;">
+			<br>
+			<br>
+			<br>
+			<br>
+			<p style="font-size:16pt">Your partner bet <strong>7 cents</strong> that the next image has more<br><br></p>
+			<p id = "prediction" style="font-size:16pt"><span id = "prediction_text">{}</span></p>
+		</div>
+	</p>
+	</div>
+
+	<div class="slide" id="choice_screen_p2">
+		<p class = "logo"><br><img class="StimElement" height = "225"></img></p>
+		<div class = "choice_pos">
+			<div class = "left">
+				<span class = "left_word">{{}}</span><br><br> &nbsp&nbsp Z
+			</div>
+			<div class = "right">
+				<span class = "right_word">{{}}</span><br><br>M &nbsp&nbsp
+			</div>
+		</div>
+	</div>
+
+	<!--Confidence Screen P2 --> 
+	<div class="slide" id="confidence_screen_p2">
+		<p id = "progress-bar" style="font-size:14pt">Image <span class = "trial_no">{}</span> of 160</p>
+		<p id='logo-text'>How confident were you?</p>
+		<center>
+			<div class="wrap">
+				<form action="">
+					<ul class='likert'>
+						<li>
+							<input type="radio" name="likert" value="1">
+							<label>1<br/>Not Confident</label>
+						</li>
+						<li>
+							<input type="radio" name="likert" value="2">
+							<label>2</label>
+						</li>
+						<li>
+							<input type="radio" name="likert" value="3">
+							<label>3</label>
+						</li>
+						<li>
+							<input type="radio" name="likert" value="4">
+							<label>4</label>
+						</li>
+
+						<li>
+							<input type="radio" name="likert" value="5">
+							<label>5</label>
+						</li>
+
+						<li>
+							<input type="radio" name="likert" value="6">
+							<label>6</label>
+						</li>
+
+						<li>
+							<input type="radio" name="likert" value="7">
+							<label>7<br />Very Confident</label>
+						</li>
+
+
+
+					</ul>
+				</form>
+				<button type="button" onclick="this.blur(); experiment.confidence_response_p2()">Next Image</button>
+				<div class = "warning1"> <p><h3 style = "color: #6f6d6d;">Please answer this question.</h3></p></div>
+			</div>
+		</div>
+
+		<div class="slide" id="end_screen">
+			<p id='logo-text'>Almost done!</p>
+			<p class="block-text"> You earned a performance bonus of <span class = "bonus">{{}}</span> dollars!
+				<br>
+				<br>
+				Answering these questions is optional, but will help us understand your answers.
+				<br>
+				<br>
+				Did you read the instructions and do you think you did the HIT correctly?
+				<br>
+				<br>
+				<label><input type="radio"  name="assess" value="No"/>No</label>
+				<label><input type="radio"  name="assess" value="Yes"/>Yes</label>
+				<label><input type="radio"  name="assess" value="Confused"/>I was confused</label>
+				<br>
+				<br>
+
+				Age:&nbsp;&nbsp;
+    			<input type="text" name="age" /><br />
+				<br>
+
+				Gender:
+				<select id="gender">
+					<label><option value=""/></label>
+					<label><option value="Male"/>Male</label>
+					<label><option value="Female"/>Female</label>
+					<label><option value="Other"/>Other</label>
+				</select>
+
+				<br>
+				<br>				
+
+			    Racial/Ethnic Background: <br/>
+				<input type="checkbox" name="race" value="white"/>&nbsp;White<br/>
+				<input type="checkbox" name="race" value="black"/>&nbsp;Black<br/> 
+				<input type="checkbox" name="race" value="hispanic"/>&nbsp;Hispanic<br/>
+				<input type="checkbox" name="race" value="asian"/>&nbsp;Asian<br/>  
+				<input type="checkbox" name="race" value="other"/>&nbsp;Other
+				<br>
+				<br>
+
+				<span>Did you complete this hit using a mobile device?</span>&nbsp;&nbsp;
+				<input type="radio" name="mobileButton" value="Yes" /><span id="opt">Yes</span>&nbsp;&nbsp;
+				<input type="radio" name="mobileButton" value="No" /><span id="opt">No</span>
+
+				<br>
+				<br>
+
+				Did you enjoy the hit?
+				<br>
+				<select id="enjoyment">
+					<label><option value="-1"></option></label>
+					<label><option value="0">Worse than the Average HIT</option></label>
+					<label><option value="1" >An Average HIT</option></label>
+					<label><option value="2">Better than average HIT</option></label>
+				</select>
+
+				<br>
+				<br>
+
+				We would be interested in any comments you have about this experiment. Please type them here:
+				<textarea id="comments" rows="3" cols="50"></textarea>
+				<br/>
+				<button onclick="experiment.end()">Submit</button>
+			</p>
+		</div>
+
+
+<div class ="slide" id="final_screen">
+	<p class ="block-text"> You are done! You earned a bonus of <span class = "bonus">{{}}</span> dollars. The HIT will be reviewed in batch within 12 hours, and you will receive your bonus in 24 hours. Thank you so much for your time!</p>
+	<p class ="block-text"> Do not close this page until you've been redirected to the MTurk Website.</p>
+	<p class ="block-text"> If there are problems submitting, please take a screenshot of the error and contact the requester.</p> 
+</div>
+ 
+ <script type="text/javascript" src="helper_scripts/browsercheck.js"></script>
+ <script type="text/javascript" src="helper_scripts/helper_func.js"></script>
+ <script type="text/javascript" src="experiment.js"></script>
+
+</body>
+</html>
+
